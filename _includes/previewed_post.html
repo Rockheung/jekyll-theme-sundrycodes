@@ -1,0 +1,20 @@
+<header>
+  <h2>
+    <div><a href="{{ post.url | relative_url }}" title="{{ post.title }}" rel="bookmark">{{ post.title }}</a></div>
+    <span class="is-pulled-right is-size-7">
+      <time datetime="{{ post.date | date: "%b %-d, %Y" }}" pubdate="pubdate">{{ post.date | date: "%b %-d, %Y" }}</time>
+      {% if post.categories.size > 0 %} in {%- for category in post.categories -%}
+          <a href="{{ base_url }}category/#{{ category }}" title="Show all posts in {{ category }}" rel="tag category">
+            {{ category }}{%- if forloop.last -%}.{%- else -%}, {%- endif -%}
+          </a>
+        {%- endfor -%}
+      {%- endif -%}
+    </small>
+  </h2>
+</header>
+<div>
+  <div>{{ post.excerpt | truncatewords: 55 }}</div>
+  <p>
+    <a href="{{ post.url | relative_url }}" rel="bookmark">Continue reading</a>
+  </p>
+</div>
