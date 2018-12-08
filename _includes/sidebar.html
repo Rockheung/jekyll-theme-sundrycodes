@@ -54,7 +54,7 @@
     {% assign lists_tags = site.posts | map: "tags" %}
     {% assign tags = lists_tags | uniq | sort %}
     {% assign avg = tags.size | times: 1.0 | divided_by: lists_tags.size %}
-    <ul class="menu-list{% if tags == empty %} no-{% endif %}tag-cloud">
+    <div class="tags">
       {% if tags != empty %}
         {% for tag in tags %}
           {% assign post_count = 0 %}
@@ -63,7 +63,7 @@
               {% assign post_count = post_count | plus: 1 %}
             {% endif %}
           {% endfor %}
-          <li>
+          <span class="tag is-light">
             <a href="/tag/#{{ tag }}"
                title="{% case post_count %}
                {% when 0 %}No post
@@ -71,7 +71,7 @@
                {% else %}{{ post_count }} posts tagged by {{ tag }}
                {% endcase %}"
                class="tag-{{ post_count | divided_by: avg | times: 2.5 | floor }}{% if post.tags contains tag %} current{% endif %}">{{ tag }}</a>
-          </li>
+          </span>
         {% endfor %}
       {% else %}
         <li>
