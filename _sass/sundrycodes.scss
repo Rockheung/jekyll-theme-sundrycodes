@@ -2,32 +2,109 @@
 @import "../node_modules/bulma-badge/dist/css/bulma-badge";
 
 
-.content figure pre {
-  text-align: initial;
+.content {
+  figure pre {
+    text-align: initial;
+  }
+  .tag.is-white {
+    margin: 0rem;
+  }
 }
 
-.content .tag.is-white {
-  margin: 0rem;
-}
-
-#search-form p {
-  width: 47px;
-  transition: all .30s;
-}
-
-#search-form span i {
-  color: #363636;
+#search-form {
+  p {
+    width: 47px;
+    transition: all .30s;
+  }
+  span.icon {
+    color: #363636;
+  }
 }
 
 #menu-frame {
   width: 295px;
-}
-
-.menu-list span.badge {
-  margin-left: 0.3rem;
+  .menu-list span.badge {
+    margin-left: 0.3rem;
+  }
 }
 
 #main-frame {
   max-width: 729px;
   width: 100%;
+}
+
+#recentcomments.dsq-widget ul.dsq-widget-list {
+  padding: unset;
+  margin: unset;
+  text-align: unset;
+  img.dsq-widget-avatar {
+    width: unset;
+    height: unset;
+    border: unset;
+    margin: unset;
+    padding: unset;
+    float: unset;
+  }
+  a.dsq-widget-user {
+    font-weight: unset;
+  }
+  a.dsq-widget-thread {
+    font-weight: unset;
+  }
+  p.dsq-widget-meta {
+    clear: unset;
+    font-size: unset;
+    padding: unset;
+    margin: unset;
+  }
+  li.dsq-widget-item {
+    margin: unset;
+    list-style-type: unset;
+    clear: unset;
+  }
+  span.dsq-widget-clout {
+    padding: unset;
+    background-color: unset;
+    color: unset;
+  }
+  table.dsq-widget-horiz td {
+    padding-right: unset;
+  }
+  .dsq-widget-comment p {
+    display: unset;
+  }
+}
+
+
+#recentcomments.dsq-widget ul.dsq-widget-list {
+  padding: unset;
+  margin: unset;
+  text-align: unset;
+  li.dsq-widget-item {
+    margin: unset;
+    list-style-type: unset;
+    clear: unset;
+    a img.dsq-widget-avatar {
+      width: unset;
+      height: unset;
+      border: unset;
+      margin: unset;
+      padding: unset;
+      float: unset;
+    }
+    a.dsq-widget-user {
+      display: none;
+    }
+  }
+  p.dsq-widget-meta {
+    visibility: hidden;
+    a:nth-of-type(1) {
+    }
+    a:nth-of-type(2) {
+      visibility: visible;
+    }
+  }
+  .dsq-widget-comment p {
+    display: unset;
+  }
 }

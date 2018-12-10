@@ -9,7 +9,9 @@
     <meta name="keywords" content="{{ site.posts | map: "tags" | uniq | sort | join: ", "}}">
     <meta name="author" content="Rockheung">
     <link rel="home" href="/">
+    {% comment %}
     {% include webfont.html %}
+    {% endcomment %}
     {% include icon.html %}
     <!--[if lt IE 9]>
       <script src="/assets/js/html5shiv.js"></script>
@@ -18,11 +20,16 @@
     <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
     <title>{{ site.title }} - {% if page.title %}{{ page.title }}{% else %}{{ site.description }}{% endif %}</title>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    {% include webfont.html %}
   </head>
   <body>
+    <section class="hero is-dark is-bold">
+      <div class="hero-body">
+        <div class="container">
+          {% include navbar.html %}
+        </div>
+      </div>
+    </section>
     <section class="section">
-      {% include navbar.html %}
       <div class="columns is-multiline is-centered" >
         {% include sidebar.html %}
         <div id="main-frame" class="column is-half is-fluid">

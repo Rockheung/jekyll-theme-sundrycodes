@@ -18,7 +18,7 @@
                    {% assign post_count = post_count | plus: 1 %}
                  {% endif %}
                {% endfor %}
-               <span class="badge is-badge-small is-badge-outlined is-badge-warning" data-badge="{{ post_count }}"></span>
+               <span class="badge is-badge-small is-badge-outlined is-badge-dark" data-badge="{{ post_count }}"></span>
             </a>
           </li>
         {% endfor %}
@@ -78,7 +78,7 @@
       Recent comments
     </p>
     <ul class="menu-list">
-      <div id="recentcomments" class="dsq-widget collapse in"><script type="text/javascript" src="https://sundry-rockheung.disqus.com/recent_comments_widget.js?num_items=5&hide_avatars=0&avatar_size=32&excerpt_length=200"></script></div>
+      <div id="recentcomments" class="dsq-widget collapse in"><script type="text/javascript" src="https://sundry-rockheung.disqus.com/recent_comments_widget.js?num_items=5&hide_avatars=1&avatar_size=32&excerpt_length=200"></script></div>
     </ul>
   </aside>
 </div>
