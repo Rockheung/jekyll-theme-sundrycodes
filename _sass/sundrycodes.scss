@@ -6,12 +6,21 @@
   text-align: initial;
 }
 
-#search-icon {
+#search-form p {
+  width: 47px;
+  transition: all .30s;
+}
+
+#search-form span i {
   color: #363636;
 }
 
 #menu-frame {
   width: 295px;
+}
+
+#menu-frame .badge {
+  margin-left: 0.5rem;
 }
 
 #main-frame {

@@ -1,0 +1,27 @@
+<article class="box content" id="{{ post.slug }}">
+  <header class="">
+    <h2 class="">
+      <a href="{{ post.url | relative_url }}" title="{{ post.title }}" rel="bookmark">{{ post.title }}</a>
+      <br>
+      <small class="">
+        <time datetime="{{ post.date | date: "%b %-d, %Y" }}" pubdate="pubdate">{{ post.date | date: "%b %-d, %Y" }}</time>
+        {% if post.categories.size > 0 %}
+          <br>
+          in
+          {% for category in post.categories %}
+            <a href="{{ base_url }}category/#{{ category }}" title="Show all posts in {{ category }}" rel="tag category">
+              {{ category }}{% if forloop.last %}.{% else %}, {% endif %}
+            </a>
+          {% endfor %}
+        {% endif %}
+      </small>
+    </h2>
+  </header>
+  <div class="">
+    <div class="">{{ post.excerpt | truncatewords: 55 }}</div>
+    <p class="">
+      <a href="{{ post.url | relative_url }}" rel="bookmark">Continue reading</a>
+    </p>
+  </div>
+  {% include taglist_post.html %}
+</article>

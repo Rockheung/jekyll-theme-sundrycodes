@@ -12,19 +12,13 @@
             <a class="{% if page.categories contains category %}is-active{% endif %}"
                href="/category/#{{ category }}"
                title="Show all entries in {{ category }}">{{ category }}
-               <span class="label pull-right">
-                 {% assign post_count = 0 %}
-                 {% for i in lists_categories %}
-                   {% if i contains category %}
-                     {% assign post_count = post_count | plus: 1 %}
-                   {% endif %}
-                 {% endfor %}
-                 {% case post_count %}
-                   {% when 0 %}No post
-                   {% when 1 %}{{ post_count }} post
-                   {% else %}{{ post_count }} posts
-                 {% endcase %}
-               </span>
+               {% assign post_count = 0 %}
+               {% for i in lists_categories %}
+                 {% if i contains category %}
+                   {% assign post_count = post_count | plus: 1 %}
+                 {% endif %}
+               {% endfor %}
+               <span class="badge is-small" data-badge="{{ post_count }}"></span>
             </a>
           </li>
         {% endfor %}
