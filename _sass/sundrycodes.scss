@@ -6,7 +6,7 @@
   figure pre {
     text-align: initial;
   }
-  .tag.is-white {
+  .tag {
     margin: 0rem;
   }
 }
@@ -33,6 +33,11 @@
   width: 100%;
 }
 
+#recentcomments li a div.media {
+  align-items: center;
+}
+
+/* default disqus comment style unset.
 #recentcomments.dsq-widget ul.dsq-widget-list {
   padding: unset;
   margin: unset;
@@ -77,34 +82,19 @@
 
 
 #recentcomments.dsq-widget ul.dsq-widget-list {
-  padding: unset;
-  margin: unset;
-  text-align: unset;
   li.dsq-widget-item {
-    margin: unset;
-    list-style-type: unset;
-    clear: unset;
     a img.dsq-widget-avatar {
-      width: unset;
-      height: unset;
-      border: unset;
-      margin: unset;
-      padding: unset;
-      float: unset;
     }
     a.dsq-widget-user {
-      display: none;
     }
   }
   p.dsq-widget-meta {
-    visibility: hidden;
     a:nth-of-type(1) {
     }
     a:nth-of-type(2) {
-      visibility: visible;
     }
   }
   .dsq-widget-comment p {
-    display: unset;
   }
 }
+*/

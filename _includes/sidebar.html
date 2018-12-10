@@ -12,13 +12,13 @@
             <a class="{% if page.categories contains category %}is-active{% endif %}"
                href="/category/#{{ category }}"
                title="Show all entries in {{ category }}">{{ category }}
-               {% assign post_count = 0 %}
-               {% for i in lists_categories %}
-                 {% if i contains category %}
-                   {% assign post_count = post_count | plus: 1 %}
-                 {% endif %}
-               {% endfor %}
-               <span class="badge is-badge-small is-badge-outlined is-badge-warning" data-badge="{{ post_count }}"></span>
+               {%- assign post_count = 0 -%}
+               {%- for i in lists_categories -%}
+                 {%- if i contains category -%}
+                   {%- assign post_count = post_count | plus: 1 -%}
+                 {%- endif -%}
+               {%- endfor -%}
+               <span class="badge is-badge-small is-badge-outlined is-badge-danger" data-badge="{{ post_count }}"></span>
             </a>
           </li>
         {% endfor %}
@@ -73,12 +73,43 @@
           No tag yet.
         </li>
       {% endif %}
-    </ul>
+    </div>
     <p class="menu-label">
       Recent comments
     </p>
-    <ul class="menu-list">
-      <div id="recentcomments" class="dsq-widget collapse in"><script type="text/javascript" src="https://sundry-rockheung.disqus.com/recent_comments_widget.js?num_items=5&hide_avatars=0&avatar_size=32&excerpt_length=200"></script></div>
+    <ul class="menu-list" id="recentcomments" class="dsq-widget">
+      <script type="text/javascript" src="https://sundry-rockheung.disqus.com/recent_comments_widget.js?num_items=5&hide_mods=0&excerpt_length=30&hide_avatars=0&avatar_size=32"></script>
+      <script>
+        var dsqWidget = document.getElementById("recentcomments");
+        //remove given style
+        dsqWidget.getElementsByTagName("style")[0].remove();
+        dsqWidget.getElementsByTagName("ul")[0].setAttribute("hidden",true);
+        //get recent comments
+        var dsqWidgetItems = dsqWidget.getElementsByClassName("dsq-widget-item");
+        var dsqRestyler = (i) => {
+          var avatar_img = i.getElementsByClassName("dsq-widget-avatar")[0];
+          var user_a = i.getElementsByClassName("dsq-widget-user")[0];
+          var comment = document.createTextNode(i.getElementsByClassName("dsq-widget-comment")[0].children[0].childNodes[0].nodeValue);
+          var meta = i.getElementsByClassName("dsq-widget-meta")[0].children[1].childNodes[0].nodeValue;
+          var meta_src = i.getElementsByClassName("dsq-widget-meta")[0].children[1].getAttribute("href");
+          var wrapper = document.createElement("li");
+          wrapper.innerHTML = '<li><a><div class="media"><figure class="media-left"><p class="image is-32x32"></p></figure><div class="media-content"><span class="badge is-badge-small is-badge-outlined is-badge-danger"></span></div></div></a></li>';
+          var dsqHtmlRestyled = wrapper.firstChild;
+          avatar_img.classList.add("is-rounded");
+          //comment.classList.add("level-item");
+          dsqHtmlRestyled.getElementsByClassName("image")[0].appendChild(avatar_img);
+          dsqHtmlRestyled.getElementsByClassName("badge")[0].setAttribute("data-badge", meta);
+          var spanBadge = dsqHtmlRestyled.getElementsByClassName("badge")[0];
+          spanBadge.setAttribute("data-badge", meta);
+          dsqHtmlRestyled.getElementsByClassName("media-content")[0].insertBefore(comment, spanBadge);
+          dsqHtmlRestyled.getElementsByTagName("a")[0].setAttribute("href", meta_src);
+          dsqWidget.appendChild(dsqHtmlRestyled);
+        }
+        for (let c of dsqWidgetItems) {
+          dsqRestyler(c);
+        }
+
+      </script>
     </ul>
   </aside>
 </div>
