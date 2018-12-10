@@ -6,6 +6,10 @@
   text-align: initial;
 }
 
+.content .tag.is-white {
+  margin: 0rem;
+}
+
 #search-form p {
   width: 47px;
   transition: all .30s;
@@ -19,8 +23,8 @@
   width: 295px;
 }
 
-#menu-frame .badge {
-  margin-left: 0.5rem;
+.menu-list span.badge {
+  margin-left: 0.3rem;
 }
 
 #main-frame {
