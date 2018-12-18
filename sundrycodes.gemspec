@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Rockheung"]
   spec.email         = ["rockheung@gmail.com"]
 
-  spec.summary       = "Theme for my github.io page - SUNDRYCODES: nothing special"
+  spec.summary       = "Theme for my github.io page - Dev Cosp: nothing special"
   spec.homepage      = "https://github.com/Rockheung/sundrycodes.git"
   spec.license       = "MIT"
 
