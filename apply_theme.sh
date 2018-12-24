@@ -5,6 +5,8 @@ declare here=$(pwd)
 
 for i in "${arr[@]}"
 do
+    rm -rf $HOME/git/rockheung.github.io/"$i"
+    rm -rf $HOME/git/rockheung.github.io/_site
     cp -Tvr $HOME/git/jekyll-theme-sundrycodes/"$i" $HOME/git/rockheung.github.io/"$i"
 done
 
